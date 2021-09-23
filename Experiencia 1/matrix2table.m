@@ -3,9 +3,13 @@ function [] = matrix2table(matrix, title, index)
 %   matrix: the matrix to turn into a table
 %   title: the title of the table
 %   index: if it's 1 then the first column will be printed as integers
-
+% example code: A = [1 2 3 100 ; 4 5 6 200; 7 8 9 300; 10 11 12 400; 13 14 15 500]
+%               matrix2table(A, "MyTable", 1)
+% Tomás Ibaceta Guerra (2021).
+%---------------------
     [row,col] = size(matrix);
     A = matrix';
+    disp("%--------MatrixToTable------")
     disp("\begin{table}[H]")
     disp("\centering")
     fprintf(1, "\\begin{tabular}{")
@@ -34,9 +38,6 @@ function [] = matrix2table(matrix, title, index)
     end
 
     disp("\end{tabular}")
-    disp("\end{table}")
-    disp(" ")
-    disp(" ")
-    
+    disp("\end{table}")   
 end
 

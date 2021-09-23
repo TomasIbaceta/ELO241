@@ -4,14 +4,19 @@ function [] = matrix2table(matrix, title, index)
 %   title: the title of the table
 %   index: if it's 1 then the first column will be printed as integers
 
+
+%--------------
     [row,col] = size(matrix);
     A = matrix';
     disp("\begin{table}[H]")
     disp("\centering")
-    disp("\begin{tabular}{|c|c|c|}")
-    fprintf(1, )
+    fprintf(1, "\\begin{tabular}{")
+    for i = 1:col
+        fprintf(1,"|c")
+    end
+    fprintf(1,"|}\n")
     disp("\hline")
-    fprintf(1, "\\multicolumn{3}{|c|}{ %s \\%% } \\\\ \\hline\n", title)
+    fprintf(1, "\\multicolumn{%d}{|c|}{ %s \\%% } \\\\ \\hline\n", col ,title)
     for i = 1:(col-1)
         fprintf(1, "T%d  &  ", i)
     end
