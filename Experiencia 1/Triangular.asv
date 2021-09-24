@@ -54,22 +54,20 @@ end
 
 losD=[0.25,0.5];
 losn=[3,5,7,9];
-T=50e-6; %periodo
 
 
-syms x f_1(x) n t;
+
 
 
 for i=losD
-    tau=T*i;
-    f_1(x)=piecewise(0 < x < tau, (1/tau)*x , tau < x < T , (tau-x)/(T-tau)+1);
+    
     for m=losn
-        a_n=(2/T)*int( f_1(x) * cos((2*n*pi*x)/T ) ,x,0,T);
-        b_n=(2/T)*int( f_1(x) * sin((2*n*pi*x)/T ) ,x,0,T);       
+        
+        tau=T*i;
         f=(a_0/2)+symsum(a_n*cos((2*n*pi*t)/T)+b_n*sin((2*n*pi*t)/T),n,1,m);
         string=sprintf("Duty Cycle: %d %%, Armonicos: %d",i*100,m);
+        figure
         fplot(f, [0 100*10^-6])
         title(string)
-     
     end
 end

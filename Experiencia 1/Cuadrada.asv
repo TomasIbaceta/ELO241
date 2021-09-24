@@ -53,9 +53,10 @@ for i=losD
         
         tau=T*i;
         f=(a_0/2)+symsum(a_n*cos((2*n*pi*t)/T)+b_n*sin((2*n*pi*t)/T),n,1,m);
-        string=sprintf("Duty Cycle: %d %%, Armonicos: %d",i*100,m);
         figure
+        string=sprintf("Duty Cycle: %d");
+        title()
         fplot(f, [0 100*10^-6])
-        title(string)
+        
     end
 end
