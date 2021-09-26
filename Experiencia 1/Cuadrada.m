@@ -17,10 +17,10 @@ syms t;
 syms n;
 
 a_0=(2/T)*tau;
-A_n=(2/T)*int(cos((2*n*pi*t)/T),-tau/2,tau/2);
+a_n=(2/T)*int(cos((2*n*pi*t)/T),-tau/2,tau/2);
 b_n=(2/T)*int(sin((2*n*pi*t)/T),-tau/2,tau/2);
 
-f=(a_0/2)+symsum(A_n*cos((2*n*pi*t)/T)+b_n*sin((2*n*pi*t)/T), n, 1, def); %a_0/2 + sumatoria de 1 hasta def en torno a n de tal función
+f=(a_0/2)+symsum(a_n*cos((2*n*pi*t)/T)+b_n*sin((2*n*pi*t)/T), n, 1, def); %a_0/2 + sumatoria de 1 hasta def en torno a n de tal función
 fplot(f,[-T/5,T+(T/5)]);
 
 %poner afuera el caso 0
@@ -29,7 +29,7 @@ string=sprintf('n=0, a_0=%0.5e, b_0=0',a_0); disp(string)
 %ver los casos de 1 a def
 
 for n=1:def
-    a=subs(A_n,n);
+    a=subs(a_n,n);
     b=subs(b_n,n);
     string=sprintf('n=%d, a_n=%0.5e, b_n=%0.5e',n,a,b);
     disp(string)
@@ -48,13 +48,13 @@ losn=[3,5,7,9];
 losD=[0.25,0.5];
 
 a_0=(2/T)*tau;
-A_n=(2/T)*int(cos((2*n*pi*t)/T),-tau/2,tau/2);
+a_n=(2/T)*int(cos((2*n*pi*t)/T),-tau/2,tau/2);
 b_n=(2/T)*int(sin((2*n*pi*t)/T),-tau/2,tau/2);
 
 for i=losD
     for m=losn
         tau=T*i;
-        f=(a_0/2)+symsum(A_n*cos((2*n*pi*t)/T)+b_n*sin((2*n*pi*t)/T),n,1,m);
+        f=(a_0/2)+symsum(a_n*cos((2*n*pi*t)/T)+b_n*sin((2*n*pi*t)/T),n,1,m);
         string=sprintf("Duty Cycle: %d %%, Armonicos: %d",i*100,m);
         figure
         fplot(f, [0 100*10^-6])
