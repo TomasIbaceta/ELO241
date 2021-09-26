@@ -36,7 +36,7 @@ for i=DC
             A(j,4) = 10*log10(subs(a_n_,n,j)); %cuarta columna: 10*log_10(a_n)
         end
     end
-    mytitle = sprintf("DC:%d%%,n:%d",i*100,n_a);
+    mytitle = sprintf("DC:%d\\%%, n:%d",i*100,n_a);
     matrix2table(A,mytitle,1)
 end
 
