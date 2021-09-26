@@ -70,6 +70,5 @@ for i=losD
         string=sprintf("Duty Cycle: %d %%, Armonicos: %d",i*100,m);
         fplot(f, [0 100*10^-6])
         title(string)
-     
     end
 end
