@@ -1,5 +1,3 @@
-%Cambio para mostrarles github a mi gente.
-
 %senal cuadrada dado un ciclo de trabajo
 %f(x)=1 para te[0<tau] y f(x)=0 para te[tau<T]
 close all;
