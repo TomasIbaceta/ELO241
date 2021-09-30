@@ -72,6 +72,5 @@ for i=losD
         figure
         fplot(f, [0 100*10^-6])
         title(string)
-     
     end
 end

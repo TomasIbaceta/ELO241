@@ -25,6 +25,7 @@ fplot(f,[-T/5,T+(T/5)]);
 string=sprintf('n=0, a_0=%0.5e, b_0=0',a_0); disp(string)
 
 %ver los casos de 1 a def
+
 for n=1:def
     a=subs(a_n,n);
     b=subs(b_n,n);
@@ -50,7 +51,6 @@ b_n=(2/T)*int(sin((2*n*pi*t)/T),-tau/2,tau/2);
 
 for i=losD
     for m=losn
-        
         tau=T*i;
         f=(a_0/2)+symsum(a_n*cos((2*n*pi*t)/T)+b_n*sin((2*n*pi*t)/T),n,1,m);
         string=sprintf("Duty Cycle: %d %%, Armonicos: %d",i*100,m);
