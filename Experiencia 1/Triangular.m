@@ -64,10 +64,12 @@ for i=losD
     tau=T*i;
     f_1(x)=piecewise(0 < x < tau, (1/tau)*x , tau < x < T , (tau-x)/(T-tau)+1);
     for m=losn
+        a_0=0
         a_n=(2/T)*int( f_1(x) * cos((2*n*pi*x)/T ) ,x,0,T);
         b_n=(2/T)*int( f_1(x) * sin((2*n*pi*x)/T ) ,x,0,T);       
         f=(a_0/2)+symsum(a_n*cos((2*n*pi*t)/T)+b_n*sin((2*n*pi*t)/T),n,1,m);
         string=sprintf("Duty Cycle: %d %%, Armonicos: %d",i*100,m);
+        figure
         fplot(f, [0 100*10^-6])
         title(string)
      
