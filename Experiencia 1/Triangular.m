@@ -38,6 +38,24 @@ for DC=[10,20,25,33.3,50]
     string = sprintf('\\multicolumn{5}{|c|}{DC: %0.1f \\%% } \\\\ \\hline', DC); disp(string)
     disp("n      & a\_n     & b\_n     & 10log(a\_n)  &  10log(b\_n)     \\ \hline")
     
+    %los x_0
+    %TODO: PONER A_0 Y B_0!!
+    a_0 = 
+    b_0 = 
+    
+    if vpa(10*log10(a_0)) < -40 %cuarta columna: 10*log(a_n)
+        loga = log(0); %no tiene sentido escribir -100 en la table
+    else
+        loga=10*log10(a_0);
+    end
+    
+    if vpa(10*log10(b_0)) < -40 %cuarta columna: 10*log(a_n)
+        logb = log(0); %no tiene sentido escribir -100 en la table
+    else
+        logb=10*log10(b_0);
+    end
+
+    fprintf(1, "0 & %0.5f & %0.5f & %0.5f & %0.5f \\\\ \\hline\n", a_0, b_0, loga, logb);
     for i=1:def
         a = subs(a_n,n,i);
         loga=10*log10(a);
