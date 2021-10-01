@@ -43,6 +43,15 @@ for DC=[10,20,25,33.3,50]
         loga=10*log10(a);
         b = subs(b_n,n,i);
         logb=10*log10(b);
+        
+        if vpa(loga) < -40 %cuarta columna: 10*log(a_n)
+           loga = log(0); %no tiene sentido escribir -100 en la table
+        end
+        
+        if vpa(logb) < -40 %cuarta columna: 10*log(a_n)
+           logb = log(0); %no tiene sentido escribir -100 en la table
+        end
+        
         %string=sprintf('n=%d, a=%0.5e, b=%0.5e',i,a,b);
         string = sprintf('%d & %0.5f & %0.5f & %0.5f & %0.5f \\\\ \\hline', i, a, b, loga, logb);
         disp(string)
