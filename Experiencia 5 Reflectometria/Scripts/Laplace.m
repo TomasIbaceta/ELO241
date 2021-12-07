@@ -8,6 +8,18 @@ Vt = Vt + Vb * (1/s)*exp(-T*s);
 %pretty(eq)
 pretty(simplify(ilaplace(Vt)));
 
+%% 
+clc 
+clear
+syms R Vg Z0 s T L
+assume(T>0)
+Vb = (Vg*Z0)/(Z0+R);
+Vt = (Vg * (R + s*L ) / (  Z0 + R + s*L )) * (1/s)*exp(-T*s);
+Vt = Vt + Vb * (1/s)*exp(-T*s);
+%pretty(eq)
+pretty(simplify(ilaplace(Vt)));
+
+
 
 
 % %% 
